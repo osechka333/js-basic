@@ -42,20 +42,18 @@ console.log(`${stringVar} is ${numberVar} years old and his CPR number is ${bigI
 
 //5. Declare an array containing different data types.
 
-const candidate = [ age = 32, position = 'product owner', priorExperience = true, gender = 'male', bankAccount = BigInt(9007199254740991)]; 
+const candidate = [ 32, 'product owner', true, 'male', BigInt(9007199254740991)]; 
 console.log(candidate);
 
 //6. Iterate through it and collect amount of each data type to object.
 
-candidate.forEach(function(item) {
-  console.log(typeof item); 
-  console.log(Object.keys(item).lenght);
+const array = [120, 45, 66, 88, true, false];
+const types = {};
+
+array.forEach(v => {
+
+  types[typeof v] = (types[typeof v] || 0) + 1;  
 });
-
-const array = [120, 45, 66, 88, true, false],
-  types = {};
-
-array.forEach(v => types[typeof v] = true);
 
 console.log(types);
 console.log(Object.keys(types).length);
