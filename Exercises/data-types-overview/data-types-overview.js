@@ -1,10 +1,10 @@
 //1. Declare a variable on each type using two options: plain creation, creation with constructor.
-const numberVar = 32;
 const stringVar = 'Product Owner';
 const booleanVar = true;
 const nullVar = null;
 let undefinedVar; 
-const objectVar = { a: 'prior experience', b: 'resume'};
+const numberVar = new Number(32);
+const objectVar = new Object('prior experience');
 const bigIntVar = BigInt(9007199254740991);
 
 class User {
@@ -49,11 +49,8 @@ console.log(candidate);
 
 const array = [120, 45, 66, 88, true, false];
 const types = {};
-
 array.forEach(v => {
-
   types[typeof v] = (types[typeof v] || 0) + 1;  
 });
-
 console.log(types);
 console.log(Object.keys(types).length);
