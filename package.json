@@ -15,6 +15,12 @@
   "homepage": "https://github.com/imatveev/js-basic.git#readme",
   "dependencies": {
     "eslint": "^6.3.0",
-    "jest": "^24.9.0"
-  }
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }

@@ -9,6 +9,6 @@ function getMissingComplexityElementCode(password) {
 
 }
 
-function getErrorMessage () {
+function getErrorMessage() {
   return false;
 }

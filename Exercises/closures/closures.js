@@ -1,10 +1,10 @@
-const user= {
+const user = {
   name: 'Test',
   surname: 'Testing',
 };
 
 function greetUser(user, getNameFunc) {
-  return `I am happy to see you ${ getNameFunc(user) }`;
+  return `I am happy to see you ${getNameFunc(user)}`;
 }
 
 /**

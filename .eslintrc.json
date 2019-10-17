@@ -1,31 +1,100 @@
 {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true
-  },
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaVersion": 2017
-  },
   "rules": {
+    "comma-spacing": [
+      1,
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "no-shadow": 0,
+    "no-unused-vars": 0,
+    "spaced-comment": 0,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-extra-semi": 1,
+    "use-isnan": 1,
+    "vars-on-top": 1,
+    "no-loop-func": 1,
+    "no-unreachable": 2,
+    "no-extra-bind": 2,
+    "no-var": 2,
+    "prefer-const": 2,
+    "no-multi-spaces": 0,
+    "arrow-parens": 0,
+    "arrow-body-style": 0,
+    "key-spacing": 0,
+    "consistent-return": 0,
+    "import/no-mutable-exports": 0,
+    "object-curly-newline": 0,
+    "function-paren-newline": [
+      2,
+      "multiline"
+    ],
+    "no-extra-parens": [
+      1,
+      "all",
+      {
+        "nestedBinaryExpressions": false
+      }
+    ],
+    "comma-dangle": [
+      0,
+      "always-multiline"
+    ],
     "indent": [
-      "error",
+      2,
       2
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
     "quotes": [
-      "error",
+      2,
       "single"
     ],
+    "linebreak-style": [
+      2,
+      "unix"
+    ],
     "semi": [
-      "error",
+      2,
       "always"
     ],
-    "no-undef": 0,
-    "no-unused-vars": 0
-  }
+    "no-prototype-builtins": 0,
+    "no-await-in-loop": 0,
+    "no-plusplus": 0,
+    "no-continue": 0,
+    "no-restricted-syntax": [
+      2,
+      "WithStatement",
+      "BinaryExpression[operator=\"in\"]"
+    ],
+    "max-len": [
+      "error",
+      160,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "forOf": true,
+      "blockBindings": true
+    }
+  },
+  "env": {
+    "node": true,
+    "es6": true,
+    "commonjs": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb/base"
+  ]
 }
