@@ -45,6 +45,6 @@ arrayCalculation(values);
 const arrayValues = new Array(Math.floor(Math.random() * 100));
 console.log(arrayValues.length);
 for (let i = 0; i < arrayValues.length; i++) {
- arrayValues[i] = Math.floor(Math.random() * 100);
+  arrayValues[i] = Math.floor(Math.random() * 100);
 }
 arrayCalculation(arrayValues);
