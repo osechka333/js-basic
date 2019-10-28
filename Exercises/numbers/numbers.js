@@ -9,14 +9,12 @@ const hexadecimal = '7F';
 console.log(binary, octal, hexadecimal);
 
 //2. Implement function `extractNumbers` which will leave only numbers in passed string (in the beginning of the string).
-
-function extractNumbers() {
-  const price = '999usd';
+const price = '999usd';
+function extractNumbers(price) {
   const number = Number(price);
   console.log(number);
 }
-extractNumbers();
-
+extractNumbers(price);
 //3. Declare a variable with decimal value and convert to binary, octal and hexadecimal.
 
 const numberDecimal = new Number('9');
@@ -34,8 +32,8 @@ console.log(randomInteger);
 
 function arrayCalculation(values) {
   const sum = values.reduce((a, b) => a + b, 0);
-  const average = sum / values.length;
-  const total = Math.round(100 * average) / 100;
+  let total = sum / values.length;
+  total = Math.round(100 * total) / 100;
   console.log(total);
 }
 const values = [101, 202, 303, 404, 505];
