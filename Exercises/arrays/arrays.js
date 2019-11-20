@@ -7,23 +7,25 @@ function generateArray() {
   }
   return arrayValues;
 }
-//console.log(generateArray());
+//another implementation with Array.from
+function generatedArray() {
+  return Array.from(new Array(Math.floor(Math.random() * 100)), () => Math.floor(Math.random() * 100));
+}
+
+//console.log(generatedArray());
 //2. Make a function which will take array and return copy of it.
 function arrayCopy(array) {
-  const results = [...array];
-  return results;
+  return [...array];
 }
 //console.log(arrayCopy([1,2]));
 //3. Make a function which will take array and element and return a index of element in array.
 function array(arr, element) {
-  const results = arr.indexOf(element);
-  return results === -1 ? 'Element is not found' : results;
+  return arr.indexOf(element) === -1 ? 'Element is not found' : arr.indexOf(element);
 }
-//console.log(array([1,2,3], 7));
+//console.log(array([1,2,3], 2));
 //4. Make function which will take two arrays and return association of them.
-function associationArray(array1, array2) {
-  const results = array1.concat(array2);
-  return results;
+function associationArray(arrayOne, arrayTwo) {
+  return arrayOne.concat(arrayOne);
 }
 //console.log(associationArray([1, 7],[2, 4]));
 //5. Make function that will change element in array by index using reference, and other one - pure function.
