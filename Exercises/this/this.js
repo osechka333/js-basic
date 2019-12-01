@@ -30,12 +30,16 @@ console.log(user.apply(nurse));
 //4. Write method in object which will use external context (add in external context some new property to use).
 const clinic = {
   name: 'Healthcare',
-  addClinicName() {
-    this.location = 'England';
-    return `${doctor.position} ${this.name} ${this.location}`;
+  clinicDetails() {
+    return {
+      clinicLocation : () => {
+        this.location = 'England';
+        return `${doctor.position} ${this.name} ${this.location}`;
+      }
+    };
   }
 };
-console.log(clinic.addClinicName());
+console.log(clinic.clinicDetails().clinicLocation());
 
 //5. Write a method in object which will return new object which will have method where it using context of parent object.
 
@@ -43,12 +47,9 @@ const appointments = {
   startWorkingTime: '8:00',
   endWorkingTime: '17:00',
   displaySchedule() {
-    this.lunchTime = '13:00';
     return {
-      workingHours() {
-        return `Doctor schedule: From ${this.startWorkingTime} Till ${this.endWorkingTime} with lunch for 1h at ${this.lunchTime}`;
-      }
+      workingHours : () => `Doctor schedule: From ${this.startWorkingTime} Till ${this.endWorkingTime}`
     };
   }
 };
-console.log(appointments.displaySchedule().workingHours.apply(appointments));
+console.log(appointments.displaySchedule().workingHours());
