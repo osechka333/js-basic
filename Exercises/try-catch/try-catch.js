@@ -1,8 +1,7 @@
 /*eslint-disable no-mixed-operators, no-console*/
 //1. Make a function which will throw error with chance 50%.
-
 function randomValues(min, max) {
-  const random = Math.floor(min + Math.random() * (max + 1 - min));
+  const random = Math.round(Math.random());
   if (random === 0) {
     throw new Error('The number could not contain 0');
   }
@@ -18,7 +17,7 @@ try  {
 let counter = 0;
 function countRandomValues() {
   try  {
-    console.log(randomValues(0, 1));
+    //console.log(randomValues(0, 1));
   } catch (e) {
     console.error(e);
   } finally {
@@ -32,3 +31,4 @@ countRandomValues(randomValues);
 countRandomValues(randomValues);
 countRandomValues(randomValues);
 console.log(counter);
+
