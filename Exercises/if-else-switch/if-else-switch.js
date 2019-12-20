@@ -12,18 +12,18 @@ const codeToMissingComplexityElement = {
 
 function getMissingComplexityElementCode(password) {
   if (!password) {
-    return getErrorMessage(3);
+    return 3;
   }
   if (password.length < 10) {
-    return getErrorMessage(0);
+    return 0;
   }
   if (password.toLowerCase() === password) {
-    return getErrorMessage(1);
+    return 1;
   }
   if (!password.match(/\W+/)) {
-    return getErrorMessage[2];
+    return 2;
   }
-  return 'Success';
+  return -1;
 }
 function getErrorMessage(errorCode) {
   switch (errorCode) {
@@ -43,4 +43,4 @@ function getErrorMessage(errorCode) {
     return 'Password is incorrect';
   }
 }
-console.log(getMissingComplexityElementCode('ewrew123Q!'));
+console.log(getErrorMessage(getMissingComplexityElementCode('ewrew123Q!')));
