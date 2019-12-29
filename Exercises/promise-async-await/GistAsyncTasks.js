@@ -1,4 +1,4 @@
-/*eslint-disable no-console, no-return-await, prefer-template*/
+/*eslint-disable no-console, no-return-await, prefer-template, func-names, prefer-spread, prefer-arrow-callback */
 //Task 1: https://gist.github.com/Mike-Savin/53fa52913e48d4f80b8ee3c4ceb4c4ff
 //Rewrite this Node.js code written in callbacks using promises. Then rewrite it using async/await.
 //Use utils.promisify() to promisify fs methods. You need to run the code in Node.js environment.
@@ -53,6 +53,14 @@ async function showHouseNames() {
   console.log(cadetBranches.map(res => res.name));
 }
 showHouseNames().catch(alert);
+
+// for results = await Promises.all(promises);
+// const results2 = [];
+// for (let url of json.cadetBranches) {
+//   const response = await fetch(url);
+//   const json = await response.json();
+//   results2.push(json)
+// }
 
 //another implementation (task)
 const winterfellUrl = 'https://anapioficeandfire.com/api/houses/362';
@@ -147,3 +155,40 @@ handleError().catch(error => {
     throw error;
   }
 });
+//class examples
+
+async function load() {
+  const winterfellUrl = 'https://anapioficeandfire.com/api/houses/362';
+  const response = await fetch(winterfellUrl);
+  const json = await response.json();
+  // const promises = json.swornMembers.map(async url => {
+  // const response = await fetch(url);
+  //   const json = await response.json();
+  //   return json;
+  // });
+  // const results = await Promise.all(promises);
+  // const results2 = [];
+  // for (let url of json.swornMembers) {
+  //   const response = await fetch(url);
+  //   const json = await response.json();
+  //   results2.push(json);
+  //}
+  const splitByChunks = function (array, chunkSize) {
+    return [].concat.apply([], array.map(function (elem, i) {
+      return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+    }));
+  };
+  let results3 = [];
+
+  for (const chunk of splitByChunks(json.swornMembers.slice(0, 10), 2)) {
+    const promises = chunk.map(async url => {
+      const response = await fetch(url);
+      const json = await response.json();
+      return json;
+    });
+    const chunkResults = await Promise.all(promises);
+    results3 = results3.concat(chunkResults);
+  }
+  console.log(results3.map(result => result.name));
+}
+load().catch(error => console.log(error.message));
