@@ -20,9 +20,9 @@ function removeKey(obj, key) {
 removeKey(minivan, 'doors');
 
 const pure = (obj, key) => {
-  const newObj = { ...obj};
-  const results = delete newObj[key];
-  return results;
+  const newObj = { ...obj };
+  delete newObj[key];
+  return newObj;
 };
 pure(minivan, 'year');
 //3. Pass object values to function using destruction.
