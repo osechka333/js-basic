@@ -3,8 +3,7 @@
 //  configurable property. (PS: in real programming life I think you will never use it :) just for you to know)
 const car = {};
 Object.defineProperty(car, 'properties', {
-  doors: 4,
-  type: 'mechanical',
+  value: 'mechanical',
   configurable: false,
   enumerable: false,
   writable: false
@@ -21,7 +20,8 @@ function removeKey(obj, key) {
 removeKey(minivan, 'doors');
 
 const pure = (obj, key) => {
-  const results = delete obj[key];
+  const newObj = { ...obj};
+  const results = delete newObj[key];
   return results;
 };
 pure(minivan, 'year');
