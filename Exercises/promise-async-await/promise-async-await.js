@@ -1,4 +1,4 @@
-/*eslint-disable no-console*/
+/*eslint-disable no-console, semi*/
 //Tasks:
 //1. Make function which will return promise which will resolve in passed to function amount of milliseconds.
 const util = require('util');
@@ -9,7 +9,7 @@ function callFunction(func, ms) {
     setTimeout(() => {
       console.log('End: ');
       try {
-        resolve(func);
+        resolve(func());
       } catch (error) {
         console.log(error);
       }
@@ -32,11 +32,21 @@ const secondPromise = util.promisify(fakeAjax);
 const thirdPromise = util.promisify(fakeAjax);
 
 async function finalResults() {
-  await Promise.all([firstPromise(), secondPromise(), thirdPromise()]).then(response => {
-    console.log(response);
-  }).catch(error => {
-    console.log(error);
-  });
+  await Promise.all([firstPromise().catch(err => {
+    console.log(err)
+  }),
+  secondPromise().catch(err => {
+    console.log(err)
+  }),
+  thirdPromise().catch(err => {
+    console.log(err)
+  })])
+  //add catch with map or add each catch for promise
+    .then(response => {
+      console.log(response);
+    }).catch(error => {
+      console.log(error);
+    });
 }
 finalResults();
 
@@ -44,7 +54,7 @@ finalResults();
 //5. Using your `delay` function from first task add delay between each serial request.
 async function serialFlow() {
   for (let i = 1; i < 4; i++) {
-    const result = await callFunction(fakeAjax(), i * 1000)
+    const result = await callFunction(fakeAjax, i * 1000)
       .catch(error => {
         console.log(error);
       });
