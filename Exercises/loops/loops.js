@@ -46,3 +46,14 @@ function sum(array) {
   }
 }
 sum(arrayToFilter);
+
+function sumRandomValue() {
+  let total =  0;
+  let i = 0;
+  while (total < 200) {
+    total += Number(Math.random());
+    i++;
+    console.log(total, i);
+  }
+}
+sumRandomValue();
